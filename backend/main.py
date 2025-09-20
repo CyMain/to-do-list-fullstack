@@ -1,15 +1,28 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 app = FastAPI()
 
+# Allow frontend to talk to backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],  # your frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],   # or ["GET", "POST"] if you want to restrict
+    allow_headers=["*"],   # or specific headers
+)
 
 class Item(BaseModel):
     text: str
     desc:str = None
     is_done: bool = False
 
+newItem = Item(text="Sample Task", desc="This is a sample task", is_done=False)
+
 items= []
+
+items.append(newItem)
 
 @app.get("/")
 def root():

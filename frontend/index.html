@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>To-Do-List</title>
+</head>
+<body>
+    <header>
+        <h1>To-Do</h1>
+        <nav>
+            <button id="add-render-btn">Add To-Do</button>
+            <button id="list-render-btn">Show List</button>
+        </nav>
+    </header>
+    <section id="content">
+        <!-- Dynamic content will be loaded here -->
+        <h1>Add a to-do</h1>
+        <form id="todo-form">
+            <input type="text" name="text" placeholder="Enter your task" required>
+            <input type="text" name="desc" placeholder="Description">
+            <label>
+                Done? <input type="checkbox" name="is_done">
+            </label>
+            <button type="submit">Add Task</button>
+        </form>
+    </section>
+    <script src="./index.js"></script>
+</body>
+</html>
